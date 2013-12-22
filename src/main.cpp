@@ -2,16 +2,66 @@
 // Main
 //==============================================================================
 
-#include "mainwindow.h"
 #include <QApplication>
+#include <QPointer>
+#include <QSettings>
 
-int main(int argc, char *argv[])
+//==============================================================================
+
+#include "mainwindow.h"
+#include "settings.h"
+
+//==============================================================================
+
+void removeInstances()
 {
-    QApplication a(argc, argv);
-    MainWindow w;
-    w.show();
+    // Удаление всей "Глобальной" информации используемой OpenFiber
 
-    return a.exec();
+    QSettings(SettingsOrganization, SettingsApplication).remove("Global");
+}
+
+int main(int pArgc, char *pArgv[])
+{
+    int res;
+
+    QPointer<QApplication> app;
+    QPointer<MainWindow> win;
+
+    // Создание приложения
+
+    app = new QApplication(pArgc, pArgv);
+
+    // Удаление всей "Глобальной" информации используемой OpenFiber
+
+    removeInstances();
+
+    // Создание main window
+
+    win = new MainWindow;
+
+    // Отображение main window
+
+    win->show();
+
+    // Выполнение приложения
+
+    res = app->exec();
+
+    // Удаление main window
+
+    delete win;
+
+    // Удаление всей "Глобальной" информации используемой OpenFiber в эту сессию
+
+    removeInstances();
+
+    // Удаление приложения
+
+    delete app;
+
+    // Конец ...
+
+    return res;
 }
 
 //==============================================================================
