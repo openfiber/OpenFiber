@@ -102,6 +102,10 @@ SET(SOURCES
 
     src/solver/ForwardEulerSolver/src/forwardeulersolver.cpp
 
+    #solver/SecondOrderRungeKuttaSolver
+
+    src/solver/SecondOrderRungeKuttaSolver/src/secondorderrungekuttasolver.cpp
+
     # solver/FourthOrderRungeKuttaSolver
 
     src/solver/FourthOrderRungeKuttaSolver/src/fourthorderrungekuttasolver.cpp
@@ -149,6 +153,10 @@ INCLUDE_DIRECTORIES(
     # solver/ForwardEulerSolver
 
     src/solver/ForwardEulerSolver/src
+
+    #solver/SecondOrderRungeKuttaSolver
+
+    src/solver/SecondOrderRungeKuttaSolver/src
 
     # solver/FourthOrderRungeKuttaSolver
 

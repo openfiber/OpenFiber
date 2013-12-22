@@ -1,33 +1,29 @@
 //==============================================================================
-// Fourth-order Runge-Kutta solver class
+// Second-order Runge-Kutta solver class
 //==============================================================================
 
-#include "fourthorderrungekuttasolver.h"
+#include "secondorderrungekuttasolver.h"
 
 //==============================================================================
 
-FourthOrderRungeKuttaSolver::FourthOrderRungeKuttaSolver() :
+SecondOrderRungeKuttaSolver::SecondOrderRungeKuttaSolver() :
     mStep(StepDefaultValue),
-    mK1(0),
-    mK23(0),
-    mYk123(0)
+    mYk1(0)
 {
 }
 
 //==============================================================================
 
-FourthOrderRungeKuttaSolver::~FourthOrderRungeKuttaSolver()
+SecondOrderRungeKuttaSolver::~SecondOrderRungeKuttaSolver()
 {
     // Удалите некоторых внутренних объектов
 
-    delete[] mK1;
-    delete[] mK23;
-    delete[] mYk123;
+    delete[] mYk1;
 }
 
 //==============================================================================
 
-void FourthOrderRungeKuttaSolver::initialize(const double &pVoiStart,
+void SecondOrderRungeKuttaSolver::initialize(const double &pVoiStart,
                                              const int &pRatesStatesCount,
                                              double *pConstants,
                                              double *pRates, double *pStates,
@@ -58,28 +54,20 @@ void FourthOrderRungeKuttaSolver::initialize(const double &pVoiStart,
 
     // (Пере-)создание массивос переменных
 
-    delete[] mK1;
-    delete[] mK23;
-    delete[] mYk123;
+    delete[] mYk1;
 
-    mK1    = new double[pRatesStatesCount];
-    mK23   = new double[pRatesStatesCount];
-    mYk123 = new double[pRatesStatesCount];
+    mYk1 = new double[pRatesStatesCount];
 }
 
 //==============================================================================
 
-void FourthOrderRungeKuttaSolver::solve(double &pVoi,
+void SecondOrderRungeKuttaSolver::solve(double &pVoi,
                                         const double &pVoiEnd) const
 {
     // k1 = h * f(t_n, Y_n)
     // k2 = h * f(t_n + h / 2, Y_n + k1 / 2)
-    // k3 = h * f(t_n + h / 2, Y_n + k2 / 2)
-    // k4 = h * f(t_n + h, Y_n + k3)
-    // Y_n+1 = Y_n + k1 / 6 + k2 / 3 + k3 / 3 + k4 / 6
+    // Y_n+1 = Y_n + k2
 
-    static const double OneOverThree = 1.0/3.0;
-    static const double OneOverSix   = 1.0/6.0;
 
     double voiStart = pVoi;
 
@@ -101,41 +89,17 @@ void FourthOrderRungeKuttaSolver::solve(double &pVoi,
 
         // Вычисление k1 и Yk1
 
-        for (int i = 0; i < mRatesStatesCount; ++i) {
-            mK1[i]    = mRates[i];
-            mYk123[i] = mStates[i]+realHalfStep*mK1[i];
-        }
+        for (int i = 0; i < mRatesStatesCount; ++i)
+            mYk1[i] = mStates[i]+realHalfStep*mRates[i];
 
-        // Вычисление f(t_n + h / 2, Y_n + k1 / 2)
+        // Вычисление  f(t_n + h / 2, Y_n + k1 / 2)
 
-        mComputeRates(pVoi+realHalfStep, mConstants, mRates, mYk123, mAlgebraic);
+        mComputeRates(pVoi+realHalfStep, mConstants, mRates, mYk1, mAlgebraic);
 
-        // Вычисление k2 и Yk2
-
-        for (int i = 0; i < mRatesStatesCount; ++i) {
-            mK23[i]   = mRates[i];
-            mYk123[i] = mStates[i]+realHalfStep*mK23[i];
-        }
-
-        // Вычисление f(t_n + h / 2, Y_n + k2 / 2)
-
-        mComputeRates(pVoi+realHalfStep, mConstants, mRates, mYk123, mAlgebraic);
-
-        // Вычисление k3 и Yk3
-
-        for (int i = 0; i < mRatesStatesCount; ++i) {
-            mK23[i]   += mRates[i];
-            mYk123[i]  = mStates[i]+realStep*mK23[i];
-        }
-
-        // Вычисление f(t_n + h, Y_n + k3)
-
-        mComputeRates(pVoi+realStep, mConstants, mRates, mYk123, mAlgebraic);
-
-        // Вычисление k4 и Y_n+1
+        // Вычисление  Y_n+1
 
         for (int i = 0; i < mRatesStatesCount; ++i)
-            mStates[i] += realStep*(OneOverSix*(mK1[i]+mRates[i])+OneOverThree*mK23[i]);
+            mStates[i] += realStep*mRates[i];
 
         // Следующий шаг по времени
 

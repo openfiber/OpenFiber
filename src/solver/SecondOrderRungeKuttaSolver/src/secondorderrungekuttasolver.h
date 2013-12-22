@@ -1,44 +1,41 @@
 //==============================================================================
-// Core solver class
+// Second-order Runge-Kutta solver class
 //==============================================================================
 
-#ifndef CORESOLVER_H
-#define CORESOLVER_H
-
-//==============================================================================
-
-#include <QMap>
-#include <QVariant>
+#ifndef SECONDORDERRUNGEKUTTASOLVER_H
+#define SECONDORDERRUNGEKUTTASOLVER_H
 
 //==============================================================================
 
-enum {
-    SizeOfDouble = sizeof(double),
-    SizeOfDoublePointer = sizeof(double *)
-};
+#include "coreodesolver.h"
 
 //==============================================================================
 
-typedef QMap<QString, QVariant> Properties;
+static const QString StepId = "Step";
 
 //==============================================================================
 
-class CoreSolver : public QObject
+static const double StepDefaultValue = 1.0;
+
+//==============================================================================
+
+class SecondOrderRungeKuttaSolver : public CoreOdeSolver
 {
-    Q_OBJECT
-
 public:
-    explicit CoreSolver();
+    explicit SecondOrderRungeKuttaSolver();
+    ~SecondOrderRungeKuttaSolver();
 
-    void setProperties(const Properties &pProperties);
+    virtual void initialize(const double &pVoiStart,
+                            const int &pRatesStatesCount, double *pConstants,
+                            double *pRates, double *pStates, double *pAlgebraic,
+                            ComputeRatesFunction pComputeRates);
 
-    void emitError(const QString &pErrorMessage);
+    virtual void solve(double &pVoi, const double &pVoiEnd) const;
 
-protected:
-    Properties mProperties;
+private:
+    double mStep;
 
-Q_SIGNALS:
-    void error(const QString &pErrorMessage);
+    double *mYk1;
 };
 
 //==============================================================================

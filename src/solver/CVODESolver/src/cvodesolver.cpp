@@ -95,7 +95,7 @@ CvodeSolver::CvodeSolver() :
 CvodeSolver::~CvodeSolver()
 {
     if (!mSolver)
-        // Решатель не был инициализирован, так что ...
+    // Решатель не был инициализирован, так что ...
 
         return;
 
@@ -167,7 +167,7 @@ void CvodeSolver::initialize(const double &pVoiStart,
 
         mSolver = CVodeCreate(CV_BDF, CV_NEWTON);
 
-        //  Использование нашего собственного обработчика ошибок
+        // Использование нашего собственного обработчика ошибок
 
         CVodeSetErrHandlerFn(mSolver, errorHandler, this);
 
