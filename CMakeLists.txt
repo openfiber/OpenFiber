@@ -46,6 +46,8 @@ SET(SOURCES
 
     # misc
 
+    src/misc/Core/src/cliutils.cpp
+
     # 3rdparty/SUNDIALS
     src/3rdparty/SUNDIALS/src/cvode/cvode.c
     src/3rdparty/SUNDIALS/src/cvode/cvode_band.c
@@ -275,6 +277,10 @@ SET(UIS
 
 SET(RESOURCES
 
+    # main
+
+    res/ui.qrc
+    res/common.qrc
 )
 
 # Подключаемые директории
@@ -283,6 +289,10 @@ INCLUDE_DIRECTORIES(
     # Основные файлы
 
     src
+
+    # misc/Core
+
+    src/misc/Core/src
 
     # 3rdparty/SUNDIALS/
 
@@ -318,6 +328,11 @@ INCLUDE_DIRECTORIES(
 
     src/solver/KINSOLSolver/src
 )
+
+# Обновление файлов перевода (.ts)  и генерация файла язык (.qm),
+# который будет в дальнейшем встроен в исполнительный в качестве ресурса
+
+UPDATE_LANGUAGE_FILES(${PROJECT_NAME} TRUE)
 
 # Сборка GUI версии OpenFiber
 

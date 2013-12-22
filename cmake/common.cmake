@@ -73,3 +73,30 @@ MACRO(INITIALISE_PROJECT)
     # Некоторые основные настройки сборки проекта
 
 ENDMACRO()
+
+#===============================================================================
+
+MACRO(UPDATE_LANGUAGE_FILES TARGET_NAME)
+
+    # Обновление файлов перевода (.ts)  и генерация файла язык (.qm),
+    # который будет в дальнейшем встроен в исполнительный в качестве ресурса
+
+    SET(LANGUAGE_FILES
+        ${TARGET_NAME}_ru
+    )
+
+    FOREACH(LANGUAGE_FILE ${LANGUAGE_FILES})
+        SET(TS_FILE i18n/${LANGUAGE_FILE}.ts)
+
+        IF(EXISTS ${PROJECT_SOURCE_DIR}/${TS_FILE})
+            EXECUTE_PROCESS(COMMAND ${QT_BINARY_DIR}/lupdate -no-obsolete
+                                                             ${SOURCES} ${HEADERS_MOC} ${UIS}
+                                                         -ts ${TS_FILE}
+                            WORKING_DIRECTORY ${PROJECT_SOURCE_DIR})
+            EXECUTE_PROCESS(COMMAND ${QT_BINARY_DIR}/lrelease ${PROJECT_SOURCE_DIR}/${TS_FILE}
+                                                          -qm ${CMAKE_BINARY_DIR}/${LANGUAGE_FILE}.qm)
+        ENDIF()
+    ENDFOREACH()
+ENDMACRO()
+
+#===============================================================================
