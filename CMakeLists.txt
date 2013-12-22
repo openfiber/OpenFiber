@@ -36,3 +36,27 @@ ENDIF()
 
 FILE(WRITE ${CMAKE_BINARY_DIR}/version.txt ${VERSION})
 
+# Файлы, которые составляют GUI версию  OpenFiber
+
+SET(SOURCES
+    src/main.cpp
+    src/mainwindow.cpp
+)
+
+SET(HEADERS_MOC
+    src/mainwindow.h
+)
+
+SET(UIS
+    src/mainwindow.ui
+)
+
+SET(RESOURCES
+
+)
+
+# Подключаемые директории
+
+INCLUDE_DIRECTORIES(
+
+)
