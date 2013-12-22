@@ -106,6 +106,11 @@ SET(SOURCES
 
     src/solver/FourthOrderRungeKuttaSolver/src/fourthorderrungekuttasolver.cpp
 
+    # solver/CVODESolver
+
+    src/solver/CVODESolver/src/cvodesolver.cpp
+
+
 )
 
 SET(HEADERS_MOC
@@ -148,6 +153,10 @@ INCLUDE_DIRECTORIES(
     # solver/FourthOrderRungeKuttaSolver
 
     src/solver/FourthOrderRungeKuttaSolver/src
+
+    # solver/CVODESolver
+
+    src/solver/CVODESolver/src
 )
 
 # Сборка GUI версии OpenFiber
