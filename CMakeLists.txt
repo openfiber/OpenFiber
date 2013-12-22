@@ -42,6 +42,7 @@ SET(SOURCES
     # Основные файлы
     src/main.cpp
     src/mainwindow.cpp
+    src/settings.cpp
 
     # 3rdparty/SUNDIALS/
     src/3rdparty/SUNDIALS/src/cvode/cvode.c
@@ -97,6 +98,7 @@ SET(SOURCES
     src/solver/CoreSolver/src/coresolver.cpp
     src/solver/CoreSolver/src/coreodesolver.cpp
     src/solver/CoreSolver/src/corevoisolver.cpp
+    src/solver/CoreSolver/src/corenlasolver.cpp
 
     # solver/ForwardEulerSolver
 
@@ -114,7 +116,9 @@ SET(SOURCES
 
     src/solver/CVODESolver/src/cvodesolver.cpp
 
+    # solver/KINSOLSolver
 
+    src/solver/KINSOLSolver/src/kinsolsolver.cpp
 )
 
 SET(HEADERS_MOC
@@ -140,6 +144,9 @@ SET(RESOURCES
 # Подключаемые директории
 
 INCLUDE_DIRECTORIES(
+    # Основные файлы
+
+    src
 
     # 3rdparty/SUNDIALS/
 
@@ -165,6 +172,10 @@ INCLUDE_DIRECTORIES(
     # solver/CVODESolver
 
     src/solver/CVODESolver/src
+
+    # solver/KINSOLSolver
+
+    src/solver/KINSOLSolver/src
 )
 
 # Сборка GUI версии OpenFiber

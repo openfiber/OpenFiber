@@ -29,14 +29,14 @@ int rhsFunction(double pVoi, N_Vector pStates, N_Vector pRates, void *pUserData)
 
 //==============================================================================
 
-void errorHandler(int pErrorCode, const char *pModule, const char *pFunction,
+void errorHandlerCV(int pErrorCode, const char *pModule, const char *pFunction,
                   char *pErrorMessage, void *pUserData)
 {
     Q_UNUSED(pModule);
     Q_UNUSED(pFunction);
 
     if (pErrorCode != CV_WARNING)
-        // CVODE выдала ошибку, поэтому передать ее на объект CvodeSolver
+        // CVODE выдал ошибку, поэтому передать его на объект CvodeSolver
         reinterpret_cast<CvodeSolver *>(pUserData)->emitError(pErrorMessage);
 }
 
@@ -169,7 +169,7 @@ void CvodeSolver::initialize(const double &pVoiStart,
 
         // Использование нашего собственного обработчика ошибок
 
-        CVodeSetErrHandlerFn(mSolver, errorHandler, this);
+        CVodeSetErrHandlerFn(mSolver, errorHandlerCV, this);
 
         // Иниуиализация CVODE решателя
 
