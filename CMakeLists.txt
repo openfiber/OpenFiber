@@ -44,6 +44,8 @@ SET(SOURCES
     src/mainwindow.cpp
     src/settings.cpp
 
+    # misc
+
     # 3rdparty/SUNDIALS
     src/3rdparty/SUNDIALS/src/cvode/cvode.c
     src/3rdparty/SUNDIALS/src/cvode/cvode_band.c
