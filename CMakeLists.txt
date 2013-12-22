@@ -39,8 +39,59 @@ FILE(WRITE ${CMAKE_BINARY_DIR}/version.txt ${VERSION})
 # Файлы, которые составляют GUI версию  OpenFiber
 
 SET(SOURCES
+    # Основные файлы
     src/main.cpp
     src/mainwindow.cpp
+
+    # 3rdparty/SUNDIALS/
+        src/3rdparty/SUNDIALS/src/cvode/cvode.c
+        src/3rdparty/SUNDIALS/src/cvode/cvode_band.c
+        src/3rdparty/SUNDIALS/src/cvode/cvode_bandpre.c
+        src/3rdparty/SUNDIALS/src/cvode/cvode_bbdpre.c
+        src/3rdparty/SUNDIALS/src/cvode/cvode_dense.c
+        src/3rdparty/SUNDIALS/src/cvode/cvode_diag.c
+        src/3rdparty/SUNDIALS/src/cvode/cvode_direct.c
+        src/3rdparty/SUNDIALS/src/cvode/cvode_io.c
+        src/3rdparty/SUNDIALS/src/cvode/cvode_spbcgs.c
+        src/3rdparty/SUNDIALS/src/cvode/cvode_spgmr.c
+        src/3rdparty/SUNDIALS/src/cvode/cvode_spils.c
+        src/3rdparty/SUNDIALS/src/cvode/cvode_sptfqmr.c
+
+        src/3rdparty/SUNDIALS/src/ida/ida.c
+        src/3rdparty/SUNDIALS/src/ida/ida_band.c
+        src/3rdparty/SUNDIALS/src/ida/ida_bbdpre.c
+        src/3rdparty/SUNDIALS/src/ida/ida_dense.c
+        src/3rdparty/SUNDIALS/src/ida/ida_direct.c
+        src/3rdparty/SUNDIALS/src/ida/ida_ic.c
+        src/3rdparty/SUNDIALS/src/ida/ida_io.c
+        src/3rdparty/SUNDIALS/src/ida/ida_spbcgs.c
+        src/3rdparty/SUNDIALS/src/ida/ida_spgmr.c
+        src/3rdparty/SUNDIALS/src/ida/ida_spils.c
+        src/3rdparty/SUNDIALS/src/ida/ida_sptfqmr.c
+
+        src/3rdparty/SUNDIALS/src/kinsol/kinsol.c
+        src/3rdparty/SUNDIALS/src/kinsol/kinsol_band.c
+        src/3rdparty/SUNDIALS/src/kinsol/kinsol_bbdpre.c
+        src/3rdparty/SUNDIALS/src/kinsol/kinsol_dense.c
+        src/3rdparty/SUNDIALS/src/kinsol/kinsol_direct.c
+        src/3rdparty/SUNDIALS/src/kinsol/kinsol_io.c
+        src/3rdparty/SUNDIALS/src/kinsol/kinsol_spbcgs.c
+        src/3rdparty/SUNDIALS/src/kinsol/kinsol_spgmr.c
+        src/3rdparty/SUNDIALS/src/kinsol/kinsol_spils.c
+        src/3rdparty/SUNDIALS/src/kinsol/kinsol_sptfqmr.c
+
+        src/3rdparty/SUNDIALS/src/nvec_ser/nvector_serial.c
+
+        src/3rdparty/SUNDIALS/src/sundials/sundials_band.c
+        src/3rdparty/SUNDIALS/src/sundials/sundials_dense.c
+        src/3rdparty/SUNDIALS/src/sundials/sundials_direct.c
+        src/3rdparty/SUNDIALS/src/sundials/sundials_iterative.c
+        src/3rdparty/SUNDIALS/src/sundials/sundials_math.c
+        src/3rdparty/SUNDIALS/src/sundials/sundials_nvector.c
+        src/3rdparty/SUNDIALS/src/sundials/sundials_spbcgs.c
+        src/3rdparty/SUNDIALS/src/sundials/sundials_spgmr.c
+        src/3rdparty/SUNDIALS/src/sundials/sundials_sptfqmr.c
+
 )
 
 SET(HEADERS_MOC
@@ -58,7 +109,8 @@ SET(RESOURCES
 # Подключаемые директории
 
 INCLUDE_DIRECTORIES(
-
+    src/3rdparty/SUNDIALS/include
+    src/3rdparty/SUNDIALS/src
 )
 
 # Сборка GUI версии OpenFiber
