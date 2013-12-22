@@ -1,0 +1,16 @@
+<RCC>
+    <qresource prefix="/">
+        <file alias="appIcon">icon/OpenFiber.png</file>
+        <file>flags/en.png</file>
+        <file>flags/ru.png</file>
+        <file>oxygen/actions/application-exit.png</file>
+        <file>oxygen/actions/help-about.png</file>
+        <file>oxygen/categories/applications-education-language.png</file>
+        <file>oxygen/categories/applications-internet.png</file>
+        <file>oxygen/categories/system-help.png</file>
+        <file>oxygen/actions/view-fullscreen.png</file>
+        <file>oxygen/actions/system-reboot.png</file>
+        <file alias="qt_ru">qt_ru.qm</file>
+        <file alias="app_ru">../build/OpenFiber_ru.qm</file>
+    </qresource>
+</RCC>
