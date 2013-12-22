@@ -1,31 +1,45 @@
 //==============================================================================
-// Core ODE solver class
+// Fourth-order Runge-Kutta solver class
 //==============================================================================
 
-#ifndef COREODESOLVER_H
-#define COREODESOLVER_H
-
-//==============================================================================
-
-#include "corevoisolver.h"
+#ifndef FOURTHORDERRUNGEKUTTASOLVER_H
+#define FOURTHORDERRUNGEKUTTASOLVER_H
 
 //==============================================================================
 
-class CoreOdeSolver : public CoreVoiSolver
+#include "coreodesolver.h"
+
+//==============================================================================
+
+static const QString StepId = "Step";
+
+//==============================================================================
+
+static const double StepDefaultValue = 1.0;
+
+//==============================================================================
+
+class FourthOrderRungeKuttaSolver : public CoreOdeSolver
 {
 public:
-    typedef int (*ComputeRatesFunction)(double VOI, double *CONSTANTS, double *RATES, double *STATES, double *ALGEBRAIC);
-
-    explicit CoreOdeSolver();
+    explicit FourthOrderRungeKuttaSolver();
+    ~FourthOrderRungeKuttaSolver();
 
     virtual void initialize(const double &pVoiStart,
                             const int &pRatesStatesCount, double *pConstants,
                             double *pRates, double *pStates, double *pAlgebraic,
                             ComputeRatesFunction pComputeRates);
 
-protected:
-    ComputeRatesFunction mComputeRates;
+    virtual void solve(double &pVoi, const double &pVoiEnd) const;
+
+private:
+    double mStep;
+
+    double *mK1;
+    double *mK23;
+    double *mYk123;
 };
+
 
 //==============================================================================
 

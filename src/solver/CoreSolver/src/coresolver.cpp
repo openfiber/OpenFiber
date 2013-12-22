@@ -4,6 +4,8 @@
 
 #include "coresolver.h"
 
+//==============================================================================
+
 CoreSolver::CoreSolver() :
     mProperties(Properties())
 {
@@ -11,21 +13,32 @@ CoreSolver::CoreSolver() :
 
 //==============================================================================
 
-void CoreSolver::setProperty(const QString &pName, const QVariant &pValue)
+void CoreSolver::setProperties(const Properties &pProperties)
 {
-    // Добавить/заменить значение свойств
+    // Задание значения свойств, но только если они является допустимыми
 
-    if (isValidProperty(pName))
-        mProperties.insert(pName, pValue);
+    mProperties = pProperties;
 }
 
 //==============================================================================
 
-void CoreSolver::emitError(const QString &pErrorMsg)
+void CoreSolver::emitError(const QString &pErrorMessage)
 {
     // Сообщение об ошибке
 
-    emit error(pErrorMsg);
+    QString errorMessage;
+
+    if (pErrorMessage.startsWith("Newton"))
+        errorMessage = pErrorMessage;
+    else
+        errorMessage = pErrorMessage[0].toLower()+pErrorMessage.right(pErrorMessage.size()-1);
+
+    if (!pErrorMessage.right(3).compare("..."))
+        emit error(errorMessage.left(errorMessage.size()-3));
+    else if (!pErrorMessage.right(1).compare("."))
+        emit error(errorMessage.left(errorMessage.size()-1));
+    else
+        emit error(errorMessage);
 }
 
 //==============================================================================

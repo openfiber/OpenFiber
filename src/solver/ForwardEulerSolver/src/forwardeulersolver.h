@@ -1,30 +1,38 @@
 //==============================================================================
-// Core ODE solver class
+// Forward Euler solver class
 //==============================================================================
 
-#ifndef COREODESOLVER_H
-#define COREODESOLVER_H
-
-//==============================================================================
-
-#include "corevoisolver.h"
+#ifndef FORWARDEULERSOLVER_H
+#define FORWARDEULERSOLVER_H
 
 //==============================================================================
 
-class CoreOdeSolver : public CoreVoiSolver
+#include "coreodesolver.h"
+
+//==============================================================================
+
+static const QString StepId = "Step";
+
+//==============================================================================
+
+static const double StepDefaultValue = 1.0;
+
+//==============================================================================
+
+class ForwardEulerSolver : public CoreOdeSolver
 {
 public:
-    typedef int (*ComputeRatesFunction)(double VOI, double *CONSTANTS, double *RATES, double *STATES, double *ALGEBRAIC);
-
-    explicit CoreOdeSolver();
+    explicit ForwardEulerSolver();
 
     virtual void initialize(const double &pVoiStart,
                             const int &pRatesStatesCount, double *pConstants,
                             double *pRates, double *pStates, double *pAlgebraic,
                             ComputeRatesFunction pComputeRates);
 
-protected:
-    ComputeRatesFunction mComputeRates;
+    virtual void solve(double &pVoi, const double &pVoiEnd) const;
+
+private:
+    double mStep;
 };
 
 //==============================================================================

@@ -96,6 +96,16 @@ SET(SOURCES
 
     src/solver/CoreSolver/src/coresolver.cpp
     src/solver/CoreSolver/src/coreodesolver.cpp
+    src/solver/CoreSolver/src/corevoisolver.cpp
+
+    # solver/ForwardEulerSolver
+
+    src/solver/ForwardEulerSolver/src/forwardeulersolver.cpp
+
+    # solver/FourthOrderRungeKuttaSolver
+
+    src/solver/FourthOrderRungeKuttaSolver/src/fourthorderrungekuttasolver.cpp
+
 )
 
 SET(HEADERS_MOC
@@ -129,7 +139,15 @@ INCLUDE_DIRECTORIES(
 
     # solver/CoreSolver
 
-    src/solver/CoreSolver/src/
+    src/solver/CoreSolver/src
+
+    # solver/ForwardEulerSolver
+
+    src/solver/ForwardEulerSolver/src
+
+    # solver/FourthOrderRungeKuttaSolver
+
+    src/solver/FourthOrderRungeKuttaSolver/src
 )
 
 # Сборка GUI версии OpenFiber
@@ -138,18 +156,16 @@ QT5_WRAP_CPP(SOURCES_MOC ${HEADERS_MOC})
 QT5_WRAP_UI(SOURCES_UIS ${UIS})
 QT5_ADD_RESOURCES(SOURCES_RCS ${RESOURCES})
 
-ADD_EXECUTABLE(${PROJECT_NAME} WIN32 MACOSX_BUNDLE
+ADD_EXECUTABLE(${PROJECT_NAME} WIN32
     ${SOURCES}
     ${SOURCES_MOC}
     ${SOURCES_UIS}
     ${SOURCES_RCS}
 )
 
-IF(APPLE)
-    SET(QT_MODULES_EXTRAS MacExtras)
-ELSE()
-    SET(QT_MODULES_EXTRAS)
-ENDIF()
+
+SET(QT_MODULES_EXTRAS)
+
 
 QT5_USE_MODULES(${PROJECT_NAME}
     ${QT_MODULES_EXTRAS}

@@ -1,30 +1,30 @@
 //==============================================================================
-// Core ODE solver class
+// Core VOI solver class
 //==============================================================================
 
-#ifndef COREODESOLVER_H
-#define COREODESOLVER_H
-
-//==============================================================================
-
-#include "corevoisolver.h"
+#ifndef COREVOISOLVER_H
+#define COREVOISOLVER_H
 
 //==============================================================================
 
-class CoreOdeSolver : public CoreVoiSolver
+#include "coresolver.h"
+
+//==============================================================================
+
+class CoreVoiSolver : public CoreSolver
 {
 public:
-    typedef int (*ComputeRatesFunction)(double VOI, double *CONSTANTS, double *RATES, double *STATES, double *ALGEBRAIC);
+    explicit CoreVoiSolver();
 
-    explicit CoreOdeSolver();
-
-    virtual void initialize(const double &pVoiStart,
-                            const int &pRatesStatesCount, double *pConstants,
-                            double *pRates, double *pStates, double *pAlgebraic,
-                            ComputeRatesFunction pComputeRates);
+    virtual void solve(double &pVoi, const double &pVoiEnd) const = 0;
 
 protected:
-    ComputeRatesFunction mComputeRates;
+    int mRatesStatesCount;
+
+    double *mConstants;
+    double *mStates;
+    double *mRates;
+    double *mAlgebraic;
 };
 
 //==============================================================================
