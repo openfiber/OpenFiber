@@ -44,7 +44,7 @@ SET(SOURCES
     src/mainwindow.cpp
     src/settings.cpp
 
-    # 3rdparty/SUNDIALS/
+    # 3rdparty/SUNDIALS
     src/3rdparty/SUNDIALS/src/cvode/cvode.c
     src/3rdparty/SUNDIALS/src/cvode/cvode_band.c
     src/3rdparty/SUNDIALS/src/cvode/cvode_bandpre.c
@@ -93,6 +93,108 @@ SET(SOURCES
     src/3rdparty/SUNDIALS/src/sundials/sundials_spgmr.c
     src/3rdparty/SUNDIALS/src/sundials/sundials_sptfqmr.c
 
+    # 3rdparty/Qwt
+
+    src/3rdparty/Qwt/src/qwt_abstract_legend.cpp
+    src/3rdparty/Qwt/src/qwt_abstract_scale.cpp
+    src/3rdparty/Qwt/src/qwt_abstract_scale_draw.cpp
+    src/3rdparty/Qwt/src/qwt_abstract_slider.cpp
+    src/3rdparty/Qwt/src/qwt_analog_clock.cpp
+    src/3rdparty/Qwt/src/qwt_arrow_button.cpp
+    src/3rdparty/Qwt/src/qwt_clipper.cpp
+    src/3rdparty/Qwt/src/qwt_color_map.cpp
+    src/3rdparty/Qwt/src/qwt_column_symbol.cpp
+    src/3rdparty/Qwt/src/qwt_compass.cpp
+    src/3rdparty/Qwt/src/qwt_compass_rose.cpp
+    src/3rdparty/Qwt/src/qwt_counter.cpp
+    src/3rdparty/Qwt/src/qwt_curve_fitter.cpp
+    src/3rdparty/Qwt/src/qwt_date.cpp
+    src/3rdparty/Qwt/src/qwt_date_scale_draw.cpp
+    src/3rdparty/Qwt/src/qwt_date_scale_engine.cpp
+    src/3rdparty/Qwt/src/qwt_dial.cpp
+    src/3rdparty/Qwt/src/qwt_dial_needle.cpp
+    src/3rdparty/Qwt/src/qwt_dyngrid_layout.cpp
+    src/3rdparty/Qwt/src/qwt_event_pattern.cpp
+    src/3rdparty/Qwt/src/qwt_graphic.cpp
+    src/3rdparty/Qwt/src/qwt_interval.cpp
+    src/3rdparty/Qwt/src/qwt_interval_symbol.cpp
+    src/3rdparty/Qwt/src/qwt_knob.cpp
+    src/3rdparty/Qwt/src/qwt_legend.cpp
+    src/3rdparty/Qwt/src/qwt_legend_data.cpp
+    src/3rdparty/Qwt/src/qwt_legend_label.cpp
+    src/3rdparty/Qwt/src/qwt_magnifier.cpp
+    src/3rdparty/Qwt/src/qwt_math.cpp
+    src/3rdparty/Qwt/src/qwt_matrix_raster_data.cpp
+    src/3rdparty/Qwt/src/qwt_null_paintdevice.cpp
+    src/3rdparty/Qwt/src/qwt_painter.cpp
+    src/3rdparty/Qwt/src/qwt_painter_command.cpp
+    src/3rdparty/Qwt/src/qwt_panner.cpp
+    src/3rdparty/Qwt/src/qwt_picker.cpp
+    src/3rdparty/Qwt/src/qwt_picker_machine.cpp
+    src/3rdparty/Qwt/src/qwt_pixel_matrix.cpp
+    src/3rdparty/Qwt/src/qwt_plot.cpp
+    src/3rdparty/Qwt/src/qwt_plot_abstract_barchart.cpp
+    src/3rdparty/Qwt/src/qwt_plot_axis.cpp
+    src/3rdparty/Qwt/src/qwt_plot_barchart.cpp
+    src/3rdparty/Qwt/src/qwt_plot_canvas.cpp
+    src/3rdparty/Qwt/src/qwt_plot_curve.cpp
+    src/3rdparty/Qwt/src/qwt_plot_dict.cpp
+    src/3rdparty/Qwt/src/qwt_plot_directpainter.cpp
+    src/3rdparty/Qwt/src/qwt_plot_glcanvas.cpp
+    src/3rdparty/Qwt/src/qwt_plot_grid.cpp
+    src/3rdparty/Qwt/src/qwt_plot_histogram.cpp
+    src/3rdparty/Qwt/src/qwt_plot_intervalcurve.cpp
+    src/3rdparty/Qwt/src/qwt_plot_item.cpp
+    src/3rdparty/Qwt/src/qwt_plot_layout.cpp
+    src/3rdparty/Qwt/src/qwt_plot_legenditem.cpp
+    src/3rdparty/Qwt/src/qwt_plot_magnifier.cpp
+    src/3rdparty/Qwt/src/qwt_plot_marker.cpp
+    src/3rdparty/Qwt/src/qwt_plot_multi_barchart.cpp
+    src/3rdparty/Qwt/src/qwt_plot_panner.cpp
+    src/3rdparty/Qwt/src/qwt_plot_picker.cpp
+    src/3rdparty/Qwt/src/qwt_plot_rasteritem.cpp
+    src/3rdparty/Qwt/src/qwt_plot_renderer.cpp
+    src/3rdparty/Qwt/src/qwt_plot_rescaler.cpp
+    src/3rdparty/Qwt/src/qwt_plot_scaleitem.cpp
+    src/3rdparty/Qwt/src/qwt_plot_seriesitem.cpp
+    src/3rdparty/Qwt/src/qwt_plot_shapeitem.cpp
+    src/3rdparty/Qwt/src/qwt_plot_spectrocurve.cpp
+    src/3rdparty/Qwt/src/qwt_plot_spectrogram.cpp
+    src/3rdparty/Qwt/src/qwt_plot_svgitem.cpp
+    src/3rdparty/Qwt/src/qwt_plot_textlabel.cpp
+    src/3rdparty/Qwt/src/qwt_plot_tradingcurve.cpp
+    src/3rdparty/Qwt/src/qwt_plot_xml.cpp
+    src/3rdparty/Qwt/src/qwt_plot_zoneitem.cpp
+    src/3rdparty/Qwt/src/qwt_plot_zoomer.cpp
+    src/3rdparty/Qwt/src/qwt_point_3d.cpp
+    src/3rdparty/Qwt/src/qwt_point_data.cpp
+    src/3rdparty/Qwt/src/qwt_point_mapper.cpp
+    src/3rdparty/Qwt/src/qwt_point_polar.cpp
+    src/3rdparty/Qwt/src/qwt_raster_data.cpp
+    src/3rdparty/Qwt/src/qwt_round_scale_draw.cpp
+    src/3rdparty/Qwt/src/qwt_sampling_thread.cpp
+    src/3rdparty/Qwt/src/qwt_scale_div.cpp
+    src/3rdparty/Qwt/src/qwt_scale_draw.cpp
+    src/3rdparty/Qwt/src/qwt_scale_engine.cpp
+    src/3rdparty/Qwt/src/qwt_scale_map.cpp
+    src/3rdparty/Qwt/src/qwt_scale_widget.cpp
+    src/3rdparty/Qwt/src/qwt_series_data.cpp
+    src/3rdparty/Qwt/src/qwt_slider.cpp
+    src/3rdparty/Qwt/src/qwt_spline.cpp
+    src/3rdparty/Qwt/src/qwt_symbol.cpp
+    src/3rdparty/Qwt/src/qwt_system_clock.cpp
+    src/3rdparty/Qwt/src/qwt_text.cpp
+    src/3rdparty/Qwt/src/qwt_text_engine.cpp
+    src/3rdparty/Qwt/src/qwt_text_label.cpp
+    src/3rdparty/Qwt/src/qwt_thermo.cpp
+    src/3rdparty/Qwt/src/qwt_transform.cpp
+    src/3rdparty/Qwt/src/qwt_wheel.cpp
+    src/3rdparty/Qwt/src/qwt_widget_overlay.cpp
+
+    src/3rdparty/Qwt/textengines/mathml/qwt_mathml_text_engine.cpp
+    src/3rdparty/Qwt/textengines/mathml/qwt_mml_document.cpp
+    src/3rdparty/Qwt/textengines/mathml/qwt_mml_entity_table.cpp
+
     # solver/CoreSolver
 
     src/solver/CoreSolver/src/coresolver.cpp
@@ -104,7 +206,7 @@ SET(SOURCES
 
     src/solver/ForwardEulerSolver/src/forwardeulersolver.cpp
 
-    #solver/SecondOrderRungeKuttaSolver
+    # solver/SecondOrderRungeKuttaSolver
 
     src/solver/SecondOrderRungeKuttaSolver/src/secondorderrungekuttasolver.cpp
 
@@ -119,12 +221,44 @@ SET(SOURCES
     # solver/KINSOLSolver
 
     src/solver/KINSOLSolver/src/kinsolsolver.cpp
+
 )
 
 SET(HEADERS_MOC
     # Основные файлы
 
     src/mainwindow.h
+
+    # 3rdparty/Qwt
+
+    src/3rdparty/Qwt/src/qwt_abstract_legend.h
+    src/3rdparty/Qwt/src/qwt_abstract_scale.h
+    src/3rdparty/Qwt/src/qwt_abstract_slider.h
+    src/3rdparty/Qwt/src/qwt_analog_clock.h
+    src/3rdparty/Qwt/src/qwt_compass.h
+    src/3rdparty/Qwt/src/qwt_counter.h
+    src/3rdparty/Qwt/src/qwt_dial.h
+    src/3rdparty/Qwt/src/qwt_dyngrid_layout.h
+    src/3rdparty/Qwt/src/qwt_knob.h
+    src/3rdparty/Qwt/src/qwt_legend.h
+    src/3rdparty/Qwt/src/qwt_legend_label.h
+    src/3rdparty/Qwt/src/qwt_magnifier.h
+    src/3rdparty/Qwt/src/qwt_panner.h
+    src/3rdparty/Qwt/src/qwt_picker.h
+    src/3rdparty/Qwt/src/qwt_plot.h
+    src/3rdparty/Qwt/src/qwt_plot_canvas.h
+    src/3rdparty/Qwt/src/qwt_plot_glcanvas.h
+    src/3rdparty/Qwt/src/qwt_plot_magnifier.h
+    src/3rdparty/Qwt/src/qwt_plot_panner.h
+    src/3rdparty/Qwt/src/qwt_plot_picker.h
+    src/3rdparty/Qwt/src/qwt_plot_renderer.h
+    src/3rdparty/Qwt/src/qwt_plot_zoomer.h
+    src/3rdparty/Qwt/src/qwt_sampling_thread.h
+    src/3rdparty/Qwt/src/qwt_scale_widget.h
+    src/3rdparty/Qwt/src/qwt_slider.h
+    src/3rdparty/Qwt/src/qwt_text_label.h
+    src/3rdparty/Qwt/src/qwt_thermo.h
+    src/3rdparty/Qwt/src/qwt_wheel.h
 
     # solver/CoreSolver
 
@@ -152,6 +286,11 @@ INCLUDE_DIRECTORIES(
 
     src/3rdparty/SUNDIALS/include
     src/3rdparty/SUNDIALS/src
+
+    # 3rdparty/Qwt
+
+    src/3rdparty/Qwt/src
+    src/3rdparty/Qwt/textengines/mathml
 
     # solver/CoreSolver
 
