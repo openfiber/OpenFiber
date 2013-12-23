@@ -1,49 +1,33 @@
 //==============================================================================
-// Central widget
+// Tab widget
 //==============================================================================
 
-#ifndef CENTRALWIDGET_H
-#define CENTRALWIDGET_H
+#ifndef TABWIDGET_H
+#define TABWIDGET_H
 
 //==============================================================================
 
 #include "commonwidget.h"
-//==============================================================================
-
-#include <QWidget>
-#include <QMainWindow>
-#include <QTabBar>
 
 //==============================================================================
 
-class TabWidget;
+#include <QTabWidget>
 
 //==============================================================================
 
-namespace Ui {
-    class CentralWidget;
-}
-//==============================================================================
-
-class CentralWidget : public QWidget, public CommonWidget
+class TabWidget : public QTabWidget, public CommonWidget
 {
     Q_OBJECT
+
 public:
-    explicit CentralWidget(QMainWindow *pMainWindow);
-    ~CentralWidget();
+    TabWidget(QWidget *pParent);
 
-private:
-    Ui::CentralWidget *mGui;
-
-    TabWidget *mTabWidget;
-    
-signals:
-    
-public slots:
-    
+protected:
+    virtual void paintEvent(QPaintEvent *pEvent);
 };
 
-#endif // CENTRALWIDGET_H
+#endif
+
 
 //==============================================================================
 // End of file
