@@ -3,7 +3,6 @@
 //==============================================================================
 
 #include "centralwidget.h"
-#include "tabwidget.h"
 
 //==============================================================================
 
@@ -19,12 +18,6 @@ CentralWidget::CentralWidget(QMainWindow *pMainWindow) :
     // Инициализация Gui
 
     mGui->setupUi(this);
-
-    // Создание и добавление tab widget
-
-    mTabWidget = new TabWidget(this);
-
-    mGui->layout->addWidget(mTabWidget);
 }
 
 //==============================================================================
