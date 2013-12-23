@@ -13,7 +13,7 @@
 
 #include <QWidget>
 #include <QMainWindow>
-#include <QTabBar>
+
 
 //==============================================================================
 
