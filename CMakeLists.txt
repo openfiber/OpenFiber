@@ -48,6 +48,7 @@ SET(SOURCES
     # misc/Core
     src/misc/Core/src/cliutils.cpp
     src/misc/Core/src/commonwidget.cpp
+    src/misc/Core/src/centralwidget.cpp
 
     # 3rdparty/SUNDIALS
     src/3rdparty/SUNDIALS/src/cvode/cvode.c
@@ -228,6 +229,7 @@ SET(HEADERS_MOC
     src/mainwindow.h
 
     # misc/Core
+    src/misc/Core/src/centralwidget.h
 
     # 3rdparty/Qwt
     src/3rdparty/Qwt/src/qwt_abstract_legend.h
@@ -271,6 +273,7 @@ SET(UIS
     src/mainwindow.ui
 
     # misc/Core
+    src/misc/Core/src/centralwidget.ui
 )
 
 SET(RESOURCES

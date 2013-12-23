@@ -11,6 +11,7 @@
 //==============================================================================
 
 #include "mainwindow.h"
+#include "centralwidget.h"
 #include "cliutils.h"
 #include "settings.h"
 
@@ -47,6 +48,12 @@ MainWindow::MainWindow(QWidget *parent) :
     // Заголовок main window
 
     setWindowTitle(qApp->applicationName());
+
+    // Установка центрального виджета
+
+    mCentralWidget = new CentralWidget(this);
+
+    setCentralWidget(mCentralWidget);
 
     // Подключение status bar
 
@@ -85,6 +92,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
 MainWindow::~MainWindow()
 {
+
     // Удаление некоторых внутренних объектов
 
     delete mSettings;

@@ -20,6 +20,7 @@ class MainWindow;
 
 //==============================================================================
 
+class CentralWidget;
 class QSettings;
 
 //==============================================================================
@@ -41,6 +42,8 @@ protected:
 
 private:
     Ui::MainWindow *mGui;
+
+    CentralWidget *mCentralWidget;
 
     QSettings *mSettings;
 
