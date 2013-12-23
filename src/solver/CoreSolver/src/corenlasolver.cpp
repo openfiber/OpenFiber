@@ -3,7 +3,6 @@
 //==============================================================================
 
 #include "corenlasolver.h"
-//#include "plugin.h"
 
 //==============================================================================
 
@@ -32,10 +31,6 @@ void CoreNlaSolver::initialize(ComputeSystemFunction pComputeSystem,
     mSize = pSize;
     mUserData = pUserData;
 }
-
-//==============================================================================
-
-static const QString SettingsGlobal = "Global";
 
 //==============================================================================
 

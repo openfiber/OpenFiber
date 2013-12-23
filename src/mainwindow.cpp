@@ -154,15 +154,6 @@ void MainWindow::showEvent(QShowEvent *pEvent)
 
 //==============================================================================
 
-//static const QString SettingsGlobal               = "Global";
-//static const QString SettingsLocale               = "Locale";
-static const QString SettingsGeometry             = "Geometry";
-static const QString SettingsState                = "State";
-static const QString SettingsDockedWidgetsVisible = "DockedWidgetsVisible";
-static const QString SettingsStatusBarVisible     = "StatusBarVisible";
-
-//==============================================================================
-
 void MainWindow::loadSettings()
 {
     // Получить и установить язык, который будет использоваться OpenFiber

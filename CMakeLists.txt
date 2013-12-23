@@ -39,14 +39,15 @@ FILE(WRITE ${CMAKE_BINARY_DIR}/version.txt ${VERSION})
 # Файлы, которые составляют GUI версию  OpenFiber
 
 SET(SOURCES
-    # Основные файлы
+
+    # main
     src/main.cpp
     src/mainwindow.cpp
     src/settings.cpp
 
-    # misc
-
+    # misc/Core
     src/misc/Core/src/cliutils.cpp
+    src/misc/Core/src/commonwidget.cpp
 
     # 3rdparty/SUNDIALS
     src/3rdparty/SUNDIALS/src/cvode/cvode.c
@@ -98,7 +99,6 @@ SET(SOURCES
     src/3rdparty/SUNDIALS/src/sundials/sundials_sptfqmr.c
 
     # 3rdparty/Qwt
-
     src/3rdparty/Qwt/src/qwt_abstract_legend.cpp
     src/3rdparty/Qwt/src/qwt_abstract_scale.cpp
     src/3rdparty/Qwt/src/qwt_abstract_scale_draw.cpp
@@ -200,41 +200,36 @@ SET(SOURCES
     src/3rdparty/Qwt/textengines/mathml/qwt_mml_entity_table.cpp
 
     # solver/CoreSolver
-
     src/solver/CoreSolver/src/coresolver.cpp
     src/solver/CoreSolver/src/coreodesolver.cpp
     src/solver/CoreSolver/src/corevoisolver.cpp
     src/solver/CoreSolver/src/corenlasolver.cpp
 
     # solver/ForwardEulerSolver
-
     src/solver/ForwardEulerSolver/src/forwardeulersolver.cpp
 
     # solver/SecondOrderRungeKuttaSolver
-
     src/solver/SecondOrderRungeKuttaSolver/src/secondorderrungekuttasolver.cpp
 
     # solver/FourthOrderRungeKuttaSolver
-
     src/solver/FourthOrderRungeKuttaSolver/src/fourthorderrungekuttasolver.cpp
 
     # solver/CVODESolver
-
     src/solver/CVODESolver/src/cvodesolver.cpp
 
     # solver/KINSOLSolver
-
     src/solver/KINSOLSolver/src/kinsolsolver.cpp
 
 )
 
 SET(HEADERS_MOC
-    # Основные файлы
 
+    # main
     src/mainwindow.h
 
-    # 3rdparty/Qwt
+    # misc/Core
 
+    # 3rdparty/Qwt
     src/3rdparty/Qwt/src/qwt_abstract_legend.h
     src/3rdparty/Qwt/src/qwt_abstract_scale.h
     src/3rdparty/Qwt/src/qwt_abstract_slider.h
@@ -265,20 +260,22 @@ SET(HEADERS_MOC
     src/3rdparty/Qwt/src/qwt_wheel.h
 
     # solver/CoreSolver
-
     src/solver/CoreSolver/src/coresolver.h
 
 
 )
 
 SET(UIS
+
+    # main
     src/mainwindow.ui
+
+    # misc/Core
 )
 
 SET(RESOURCES
 
     # main
-
     res/ui.qrc
     res/common.qrc
 )
@@ -286,46 +283,37 @@ SET(RESOURCES
 # Подключаемые директории
 
 INCLUDE_DIRECTORIES(
-    # Основные файлы
 
+    # main
     src
 
     # misc/Core
-
     src/misc/Core/src
 
     # 3rdparty/SUNDIALS/
-
     src/3rdparty/SUNDIALS/include
     src/3rdparty/SUNDIALS/src
 
     # 3rdparty/Qwt
-
     src/3rdparty/Qwt/src
     src/3rdparty/Qwt/textengines/mathml
 
     # solver/CoreSolver
-
     src/solver/CoreSolver/src
 
     # solver/ForwardEulerSolver
-
     src/solver/ForwardEulerSolver/src
 
     #solver/SecondOrderRungeKuttaSolver
-
     src/solver/SecondOrderRungeKuttaSolver/src
 
     # solver/FourthOrderRungeKuttaSolver
-
     src/solver/FourthOrderRungeKuttaSolver/src
 
     # solver/CVODESolver
-
     src/solver/CVODESolver/src
 
     # solver/KINSOLSolver
-
     src/solver/KINSOLSolver/src
 )
 

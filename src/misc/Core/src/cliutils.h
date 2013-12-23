@@ -19,12 +19,6 @@ class QCoreApplication;
 
 //==============================================================================
 
-static const QString SettingsGlobal          = "Global";
-static const QString SettingsLocale          = "Locale";
-static const QString SettingsActiveDirectory = "ActiveDirectory";
-
-//==============================================================================
-
 QString osName();
 
 QString shortVersion(QCoreApplication *pApp);
