@@ -49,11 +49,12 @@ SET(SOURCES
     src/misc/Core/src/cliutils.cpp
     src/misc/Core/src/commonwidget.cpp
     src/misc/Core/src/centralwidget.cpp
+    src/misc/Core/src/toolbarwidget.cpp
 
     # model
-    src/model/src/cell.cpp
-    src/model/src/parameters.cpp
-    src/model/src/tissue.cpp
+    #src/model/src/cell.cpp
+    #src/model/src/parameters.cpp
+    #src/model/src/tissue.cpp
     src/model/src/runtime.cpp
     src/model/src/test_cell.cpp
 
@@ -242,6 +243,7 @@ SET(HEADERS_MOC
 
     # misc/Core
     src/misc/Core/src/centralwidget.h
+    src/misc/Core/src/toolbarwidget.h
 
     # model
     src/model/src/cell.h
@@ -297,6 +299,9 @@ SET(UIS
 
     # misc/Core
     src/misc/Core/src/centralwidget.ui
+
+    # simulation
+    src/simulation/src/simulationview.ui
 )
 
 SET(RESOURCES

@@ -8,6 +8,7 @@
 //==============================================================================
 
 #include "commonwidget.h"
+#include "simulationview.h"
 
 //==============================================================================
 
@@ -31,6 +32,8 @@ public:
 
 private:
     Ui::CentralWidget *mGui;
+
+    SimulationView *sim;
     
 signals:
     

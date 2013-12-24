@@ -18,6 +18,10 @@ CentralWidget::CentralWidget(QMainWindow *pMainWindow) :
     // Инициализация Gui
 
     mGui->setupUi(this);
+
+    sim = new SimulationView(this);
+
+    mGui->layout->addWidget(sim);
 }
 
 //==============================================================================

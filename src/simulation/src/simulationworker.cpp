@@ -1,3 +1,6 @@
+//==============================================================================
+// Simulation worker
+//==============================================================================
 
 #include "simulationworker.h"
 
@@ -16,12 +19,7 @@ SimulationWorker::~SimulationWorker()
 
 void SimulationWorker::run()
 {
-    typedef QVector<double> Doubles;
-
     int statesCount = runtime->statesCount();
-
-    Doubles xData;
-    Doubles yData[statesCount];
 
     double voi = 0; // ms
     double voiStep; // ms
@@ -35,11 +33,7 @@ void SimulationWorker::run()
 
     voiStep = 0.01; // ms
     voiMax = 1000; // ms
-    voiOutputCount = 100;
-
-    QTime time;
-
-    time.start();
+    voiOutputCount = 1;
 
     runtime->mOdeFunctions->initConsts(constants, rates, states);
     runtime->mOdeFunctions->computeRates(voi, constants, rates, states, algebraic);
@@ -73,3 +67,7 @@ void SimulationWorker::run()
     for (int i = 0; i < statesCount; ++i)
     yData[i].append(states[i]);
 }
+
+//==============================================================================
+// End of file
+//==============================================================================
