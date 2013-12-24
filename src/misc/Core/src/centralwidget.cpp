@@ -19,9 +19,21 @@ CentralWidget::CentralWidget(QMainWindow *pMainWindow) :
 
     mGui->setupUi(this);
 
-    sim = new SimulationView(this);
+    // Создание вкладок
 
-    mGui->layout->addWidget(sim);
+    mTabs = new QTabWidget();
+
+    mTabParameters = new ParametersView();
+
+    mTabs->addTab(mTabParameters,"Parameters");
+
+    mTabSimulationView = new SimulationView();
+
+    mTabs->addTab(mTabSimulationView,"Simulation view");
+
+    mTabs->setTabPosition(QTabWidget::East);
+
+    mGui->layout->addWidget(mTabs);
 }
 
 //==============================================================================

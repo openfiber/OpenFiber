@@ -51,16 +51,20 @@ SET(SOURCES
     src/misc/Core/src/centralwidget.cpp
     src/misc/Core/src/toolbarwidget.cpp
 
+    # misc/ParametersView
+    src/misc/ParametersView/src/parametersview.cpp
+
+    # misc/SimulationView
+    src/misc/SimulationView/src/simulationview.cpp
+
     # model
-    #src/model/src/cell.cpp
-    #src/model/src/parameters.cpp
-    #src/model/src/tissue.cpp
+    src/model/src/cell.cpp
+    src/model/src/parameters.cpp
+    src/model/src/tissue.cpp
     src/model/src/runtime.cpp
     src/model/src/test_cell.cpp
 
-
     # simulation
-    src/simulation/src/simulationview.cpp
     src/simulation/src/simulationworker.cpp
 
     # 3rdparty/SUNDIALS
@@ -245,6 +249,12 @@ SET(HEADERS_MOC
     src/misc/Core/src/centralwidget.h
     src/misc/Core/src/toolbarwidget.h
 
+    # misc/ParametersView
+    src/misc/ParametersView/src/parametersview.h
+
+    # misc/SimulationView
+    src/misc/SimulationView/src/simulationview.h
+
     # model
     src/model/src/cell.h
     src/model/src/parameters.h
@@ -253,7 +263,6 @@ SET(HEADERS_MOC
     src/model/src/test_cell.h
 
     # simulation
-    src/simulation/src/simulationview.h
     src/simulation/src/simulationworker.h
 
     # 3rdparty/Qwt
@@ -300,8 +309,12 @@ SET(UIS
     # misc/Core
     src/misc/Core/src/centralwidget.ui
 
-    # simulation
-    src/simulation/src/simulationview.ui
+    # misc/ParametersView
+    src/misc/ParametersView/src/parametersview.ui
+
+
+    # misc/SimulationView
+    src/misc/SimulationView/src/simulationview.ui
 )
 
 SET(RESOURCES
@@ -327,6 +340,12 @@ INCLUDE_DIRECTORIES(
 
     # misc/Core
     src/misc/Core/src
+
+    # misc/ParametersView
+    src/misc/ParametersView/src
+
+    # misc/SimulationView
+    src/misc/SimulationView/src
 
     # 3rdparty/SUNDIALS/
     src/3rdparty/SUNDIALS/include

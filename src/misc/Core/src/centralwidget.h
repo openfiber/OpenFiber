@@ -8,13 +8,14 @@
 //==============================================================================
 
 #include "commonwidget.h"
+#include "parametersview.h"
 #include "simulationview.h"
 
 //==============================================================================
 
 #include <QWidget>
 #include <QMainWindow>
-
+#include <QTabWidget>
 
 //==============================================================================
 
@@ -33,8 +34,11 @@ public:
 private:
     Ui::CentralWidget *mGui;
 
-    SimulationView *sim;
-    
+    QTabWidget *mTabs;
+
+    ParametersView *mTabParameters;
+    SimulationView *mTabSimulationView;
+
 signals:
     
 public slots:
