@@ -50,6 +50,16 @@ SET(SOURCES
     src/misc/Core/src/commonwidget.cpp
     src/misc/Core/src/centralwidget.cpp
 
+    # model
+    src/model/src/cell.cpp
+    src/model/src/parameters.cpp
+    src/model/src/tissue.cpp
+
+
+    # simulation
+    src/simulation/src/simulationview.cpp
+    src/simulation/src/simulationworker.cpp
+
     # 3rdparty/SUNDIALS
     src/3rdparty/SUNDIALS/src/cvode/cvode.c
     src/3rdparty/SUNDIALS/src/cvode/cvode_band.c
@@ -230,6 +240,15 @@ SET(HEADERS_MOC
 
     # misc/Core
     src/misc/Core/src/centralwidget.h
+
+    # model
+    src/model/src/cell.h
+    src/model/src/parameters.h
+    src/model/src/tissue.h
+
+    # simulation
+    src/simulation/src/simulationview.h
+    src/simulation/src/simulationworker.h
 
     # 3rdparty/Qwt
     src/3rdparty/Qwt/src/qwt_abstract_legend.h
