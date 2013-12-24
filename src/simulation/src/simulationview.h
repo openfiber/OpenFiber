@@ -1,10 +1,10 @@
 #ifndef SIMULATIONVIEW_H
 #define SIMULATIONVIEW_H
 
-class SImulationView
+class SimulationView
 {
 public:
-    SImulationView();
+    SimulationView();
 };
 
 #endif // SIMULATIONVIEW_H

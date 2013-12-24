@@ -1,10 +1,19 @@
 #ifndef SIMULATIONWORKER_H
 #define SIMULATIONWORKER_H
 
-class SImulationWorker
+#include <QVector>
+
+#include "runtime.h"
+
+class SimulationWorker
 {
 public:
-    SImulationWorker();
+    SimulationWorker();
+    ~SimulationWorker();
+
+    RunTime * runtime;
+
+    void run();
 };
 
 #endif // SIMULATIONWORKER_H

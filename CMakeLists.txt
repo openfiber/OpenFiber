@@ -54,6 +54,8 @@ SET(SOURCES
     src/model/src/cell.cpp
     src/model/src/parameters.cpp
     src/model/src/tissue.cpp
+    src/model/src/runtime.cpp
+    src/model/src/test_cell.cpp
 
 
     # simulation
@@ -245,6 +247,8 @@ SET(HEADERS_MOC
     src/model/src/cell.h
     src/model/src/parameters.h
     src/model/src/tissue.h
+    src/model/src/runtime.h
+    src/model/src/test_cell.h
 
     # simulation
     src/simulation/src/simulationview.h
@@ -308,6 +312,13 @@ INCLUDE_DIRECTORIES(
 
     # main
     src
+
+    # model
+    src/model/src
+
+
+    # simulation
+    src/simulation/src
 
     # misc/Core
     src/misc/Core/src

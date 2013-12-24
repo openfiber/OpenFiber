@@ -1,5 +1,5 @@
 #include "simulationview.h"
 
-SImulationView::SImulationView()
+SimulationView::SimulationView()
 {
 }
